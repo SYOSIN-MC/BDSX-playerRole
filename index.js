@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getPlayerRole = exports.hasPlayerRole = void 0;
 const __database = require("./database/database.json");
+require("./src/events");
 const database = __database;
 const hasPlayerRole = (player, role) => {
     const data = database.playersData[player.getXuid()];
