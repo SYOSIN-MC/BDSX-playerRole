@@ -4,6 +4,7 @@ import { command } from "bdsx/command";
 import { bedrockServer } from "bdsx/launcher";
 import * as __database from "./database/database.json"
 import "./src/commands"
+import "./src/events"
 const database: { playersData: { [key: string]: string[] }, roles: string[], willAddRolePlayers: { [key: string]: string[] } } = __database
 export const hasPlayerRole = (player: Player, role: string): boolean => {
     const data = database.playersData[player.getXuid()]
