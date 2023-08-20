@@ -8,7 +8,7 @@ const database: { playersData: { [key: string]: string[] }, roles: string[], wil
 export let roles = command.softEnum("roles", ...database.roles)
 export const saveDatabase = (): Promise<NodeJS.ErrnoException | null> => {
     return new Promise((resolve) => {
-        const databasePath = path.resolve(__dirname, "./database/database.json")
+        const databasePath = path.resolve(__dirname, "../database/database.json")
         fs.writeFile(databasePath, JSON.stringify(database), (err) => {
             resolve(err)
         })

@@ -10,7 +10,7 @@ const database = __database;
 exports.roles = command_1.command.softEnum("roles", ...database.roles);
 const saveDatabase = () => {
     return new Promise((resolve) => {
-        const databasePath = path.resolve(__dirname, "./database/database.json");
+        const databasePath = path.resolve(__dirname, "../database/database.json");
         fs.writeFile(databasePath, JSON.stringify(database), (err) => {
             resolve(err);
         });
