@@ -1,5 +1,7 @@
 {
-    "playersData":{},
-    "roles":["member"],
-    "willAddRolePlayers":[]
+    "playersData": {},
+    "roles": [
+        "member"
+    ],
+    "willAddRolePlayers": {}
 }
