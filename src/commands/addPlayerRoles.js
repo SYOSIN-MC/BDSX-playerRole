@@ -9,6 +9,8 @@ const base_2 = require("../base");
 command_2.command.register("addplayerrole", "add player's roles", command_1.CommandPermissionLevel.Operator).overload((param, origin, output) => {
     if (!base_2.roles.getValues().includes(param.role))
         return output.error("エラー:そのロールは存在しません。");
+    if (param.player.getName().length == 0)
+        return output.error("エラー:不正なユーザー名です(セレクターは使用できません)。");
     const player = (0, base_1.getPlayerByNameTag)(param.player.getName());
     if (player == undefined) {
         if (!(param.player.getName() in database.willAddRolePlayers))

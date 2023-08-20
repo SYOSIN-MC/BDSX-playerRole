@@ -11,6 +11,16 @@ command_2.command.register("removerole", "remove role", command_1.CommandPermiss
         const newRoles = (0, base_1.removeElement)(database.roles, param.role);
         database.roles = newRoles;
         base_2.roles.removeValues(param.role);
+        for (let key in database.playersData) {
+            if (database.playersData[key].includes(param.role)) {
+                database.playersData[key] = (0, base_1.removeElement)(database.playersData[key], param.role);
+            }
+        }
+        for (let key in database.willAddRolePlayers) {
+            if (database.willAddRolePlayers[key].includes(param.role)) {
+                database.willAddRolePlayers[key] = (0, base_1.removeElement)(database.willAddRolePlayers[key], param.role);
+            }
+        }
         (0, base_1.saveDatabase)();
         return output.success("ロールを削除しました。");
     }

@@ -6,6 +6,7 @@ const database: { playersData: { [key: string]: string[] }, roles: string[], wil
 import {roles} from "../base"
 command.register("addplayerrole", "add player's roles", CommandPermissionLevel.Operator).overload((param, origin, output) => {
     if (!roles.getValues().includes(param.role)) return output.error("エラー:そのロールは存在しません。")
+    if (param.player.getName().length == 0) return output.error("エラー:不正なユーザー名です(セレクターは使用できません)。")
     const player = getPlayerByNameTag(param.player.getName())
     if (player == undefined) {
         if (!(param.player.getName() in database.willAddRolePlayers)) database.willAddRolePlayers[param.player.getName()] = []
