@@ -1,5 +1,6 @@
 import { events } from "bdsx/event";
 import * as __database from "../../database/database.json"
+import { saveDatabase } from "../base";
 const database: { playersData: { [key: string]: string[] }, roles: string[], willAddRolePlayers: { [key: string]: string[] } } = __database
 
 events.playerJoin.on((ev) => {
@@ -13,5 +14,6 @@ events.playerJoin.on((ev) => {
             }
         }
         delete database.willAddRolePlayers[player.getName()]
+        saveDatabase()
     }
 })

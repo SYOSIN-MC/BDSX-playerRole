@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const event_1 = require("bdsx/event");
 const __database = require("../../database/database.json");
+const base_1 = require("../base");
 const database = __database;
 event_1.events.playerJoin.on((ev) => {
     if (ev.isSimulated)
@@ -16,5 +17,6 @@ event_1.events.playerJoin.on((ev) => {
             }
         }
         delete database.willAddRolePlayers[player.getName()];
+        (0, base_1.saveDatabase)();
     }
 });
