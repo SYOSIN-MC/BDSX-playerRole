@@ -3,7 +3,9 @@ import * as fs from "fs"
 import * as __database from "../database/database.json"
 import { Player } from "bdsx/bds/player";
 import { bedrockServer } from "bdsx/launcher";
+import { command } from "bdsx/command";
 const database: { playersData: { [key: string]: string[] }, roles: string[], willAddRolePlayers: { [key: string]: string[] } } = __database
+export let roles = command.softEnum("roles", ...database.roles)
 export const saveDatabase = (): Promise<NodeJS.ErrnoException | null> => {
     return new Promise((resolve) => {
         const databasePath = path.resolve(__dirname, "./database/database.json")

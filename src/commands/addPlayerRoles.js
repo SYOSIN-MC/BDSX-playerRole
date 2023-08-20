@@ -5,9 +5,9 @@ const command_2 = require("bdsx/command");
 const __database = require("../../database/database.json");
 const base_1 = require("../base");
 const database = __database;
-const roles = command_2.command.softEnum("roles", ...database.roles);
+const base_2 = require("../base");
 command_2.command.register("addplayerrole", "add player's roles", command_1.CommandPermissionLevel.Operator).overload((param, origin, output) => {
-    if (!roles.getValues().includes(param.role))
+    if (!base_2.roles.getValues().includes(param.role))
         return output.error("エラー:そのロールは存在しません。");
     const player = (0, base_1.getPlayerByNameTag)(param.player.getName());
     if (player == undefined) {
@@ -20,5 +20,5 @@ command_2.command.register("addplayerrole", "add player's roles", command_1.Comm
     return output.success("対象にロールを付与しました。");
 }, {
     player: command_1.PlayerCommandSelector,
-    role: roles
+    role: base_2.roles
 });

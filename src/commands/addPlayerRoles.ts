@@ -3,7 +3,7 @@ import { command } from "bdsx/command";
 import * as __database from "../../database/database.json"
 import { getPlayerByNameTag, saveDatabase } from "../base"
 const database: { playersData: { [key: string]: string[] }, roles: string[], willAddRolePlayers: { [key: string]: string[] } } = __database
-const roles = command.softEnum("roles", ...database.roles)
+import {roles} from "../base"
 command.register("addplayerrole", "add player's roles", CommandPermissionLevel.Operator).overload((param, origin, output) => {
     if (!roles.getValues().includes(param.role)) return output.error("エラー:そのロールは存在しません。")
     const player = getPlayerByNameTag(param.player.getName())
