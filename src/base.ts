@@ -6,6 +6,8 @@ import { bedrockServer } from "bdsx/launcher";
 import { command } from "bdsx/command";
 const database: { playersData: { [key: string]: string[] }, roles: string[], willAddRolePlayers: { [key: string]: string[] } } = __database
 export let roles = command.softEnum("roles", ...database.roles)
+const Option = [`add`, `remove`]
+export let options = command.enum(`options`, Option)
 export const saveDatabase = (): Promise<NodeJS.ErrnoException | null> => {
     return new Promise((resolve) => {
         const databasePath = path.resolve(__dirname, "../database/database.json")
