@@ -1,1 +1,5 @@
-{"playersData":{"2535445399606801":[]},"roles":["member","test"],"willAddRolePlayers":{}}
+{
+    "playersData": {},
+    "roles": ["member"],
+    "willAddRolePlayers": {}
+}
